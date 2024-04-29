@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import src.entity.Player;
+import src.objects.SuperObject;
 import src.tiles.TileManager;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -35,6 +36,8 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
     public CollisionCheck collisionCheck = new CollisionCheck(this);
     public Player player = new Player(this, keyHandler);
+    SuperObject[] objects = new SuperObject[10];
+    ObjectManager objectManager = new ObjectManager(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -43,6 +46,10 @@ public class GamePanel extends JPanel implements Runnable {
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
 
+    }
+
+    public void SetupGame() {
+        objectManager.placeObject();
     }
 
     public void startGameThread() {
@@ -74,7 +81,13 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2d = (Graphics2D) g;
 
         tileManager.draw(g2d);
+        for (int i = 0; i < objects.length; i++) {
+            if (objects[i] != null) {
+                objects[i].draw(g2d, this);
+            }
+        }
         player.draw(g2d);
+
         g2d.dispose();
     }
 }

@@ -35,41 +35,41 @@ public class TileManager {
     public void getTileImage() {
         try {
             grass = new Tile();
-            grass.image = ImageIO.read(getClass().getResourceAsStream("../../tiles/Basic_Grass.jpg"));
+            grass.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/Basic_Grass.jpg"));
             tiles.put(0, grass);
 
             water = new Tile();
-            water.image = ImageIO.read(getClass().getResourceAsStream("../../tiles/water.jpg"));
+            water.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/water.jpg"));
             tiles.put(1, water);
 
             brick = new Tile();
-            brick.image = ImageIO.read(getClass().getResourceAsStream("../../tiles/brick.png"));
+            brick.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/brick.png"));
             brick.colliton = true;
             tiles.put(2, brick);
 
             L_Grass = new Tile();
-            L_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../tiles/L_Grass.jpg"));
+            L_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/L_Grass.jpg"));
 
             R_Grass = new Tile();
-            R_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../tiles/R_Grass.jpg"));
+            R_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/R_Grass.jpg"));
 
             T_Grass = new Tile();
-            T_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../tiles/T_Grass.jpg"));
+            T_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/T_Grass.jpg"));
 
             D_Grass = new Tile();
-            D_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../tiles/B_Grass.jpg"));
+            D_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/B_Grass.jpg"));
 
             LT_Grass = new Tile();
-            LT_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../tiles/TL_Grass.jpg"));
+            LT_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/TL_Grass.jpg"));
 
             RT_Grass = new Tile();
-            RT_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../tiles/TR_Grass.jpg"));
+            RT_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/TR_Grass.jpg"));
 
             LD_Grass = new Tile();
-            LD_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../tiles/BL_Grass.jpg"));
+            LD_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/BL_Grass.jpg"));
 
             RD_Grass = new Tile();
-            RD_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../tiles/BR_Grass.jpg"));
+            RD_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/BR_Grass.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -183,10 +183,3 @@ public class TileManager {
         return null;
     }
 }
-
-/**
- * boolean left, right, up, down = false;
- * if (worldCol == 0 || mapTileNumber[worldCol - 1][worldRow] != 0)
- * 
- * 
- */
