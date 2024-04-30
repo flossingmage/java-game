@@ -8,7 +8,6 @@ import javax.imageio.ImageIO;
 
 import src.main.*;
 import src.objects.SuperObject;
-
 public class Player extends Entity {
     GamePanel gamePanel;
     KeyHandler keyHandler;
@@ -30,8 +29,9 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
-        worldX = 250;
-        worldY = 250;
+        Health = 3;
+        worldX = 25* gamePanel.tileSize;
+        worldY = 25 * gamePanel.tileSize;
         speed = 5;
         direction = "down";
     }
@@ -114,35 +114,20 @@ public class Player extends Entity {
         }
         // interact with object
         if (keyHandler.interactPressed) {
-            System.out.println("interact");
+
             try {
-                switch (direction) {
-                    case "up":
-                        System.out.println(
-                                worldX / gamePanel.tileSize + " " + (worldY) / gamePanel.tileSize);
-                        gamePanel.collisionCheck.checkObject(worldX / gamePanel.tileSize,
-                                (worldY) / gamePanel.tileSize).interact();
-                        break;
-                    case "down":
-                        System.out.println(
-                                worldX / gamePanel.tileSize + " " + (worldY + gamePanel.tileSize) / gamePanel.tileSize);
-                        gamePanel.collisionCheck.checkObject(worldX, worldY + gamePanel.tileSize).interact();
-                        break;
-                    case "left":
-                        System.out.println(
-                                (worldX - gamePanel.tileSize) / gamePanel.tileSize + " " + worldY / gamePanel.tileSize);
-                        gamePanel.collisionCheck.checkObject(worldX - gamePanel.tileSize, worldY).interact();
-                        break;
-                    case "right":
-                        System.out.println(
-                                (worldX + gamePanel.tileSize) / gamePanel.tileSize + " " + worldY / gamePanel.tileSize);
-                        gamePanel.collisionCheck.checkObject(worldX + gamePanel.tileSize, worldY).interact();
-                        break;
+                for (SuperObject object : gamePanel.objects) {
+                    if (object != null) {
+                        if (object.interactable(worldX, worldY, direction, soidArea, gamePanel.tileSize) != null) {
+                            object.interactable(worldX, worldY, direction, soidArea, gamePanel.tileSize).interact();
+                        }
+                    }
                 }
             } catch (NullPointerException e) {
                 System.out.println("No object to interact with");
             }
         }
+        
     }
 
     public void draw(Graphics2D g2d) {

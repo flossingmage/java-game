@@ -98,14 +98,4 @@ public class CollisionCheck {
         }
 
     }
-
-    public SuperObject checkObject(int worldX, int worldY) {
-        for (SuperObject object : gamePanel.objects) {
-            if (object != null)
-                if (object.WorldX == worldX && object.WorldY == worldY) {
-                    return object;
-                }
-        }
-        return null;
-    }
 }

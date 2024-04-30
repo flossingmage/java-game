@@ -1,6 +1,7 @@
 package src.objects;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import src.main.GamePanel;
@@ -21,6 +22,34 @@ public class SuperObject {
 
     public void interact() {
         System.out.println("interact");
+    }
+
+    public SuperObject interactable(int playerX, int playerY, String direction, Rectangle soidArea, int tileSize) {
+        int left = (playerX + soidArea.x) / tileSize;
+        int right = (playerX + soidArea.x + soidArea.width) / tileSize;
+        int top = (playerY + soidArea.y) / tileSize;
+        int bottom = (playerY + soidArea.y + soidArea.height) / tileSize;
+        switch (direction) {
+            case "up":
+                if ((left == WorldX || right == WorldX) && (top - 1 == WorldY))
+                    return this;
+                break;
+            case "down":
+                if ((left == WorldX || right == WorldX) && (bottom + 1 == WorldY))
+                    return this;
+                break;
+
+            case "left":
+                if (left - 1 == WorldX && (top == WorldY || bottom == WorldY))
+                    return this;
+                break;
+
+            case "right":
+                if (right + 1 == WorldX && (top == WorldY || bottom == WorldY))
+                    return this;
+                break;
+        }
+        return null;
     }
 
 }

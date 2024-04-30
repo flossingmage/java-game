@@ -17,7 +17,7 @@ public class TileManager {
     GamePanel gamePanel;
     public HashMap<Integer, Tile> tiles = new HashMap<Integer, Tile>();
     public int mapTileNumber[][];
-    public Tile grass, water, brick, L_Grass, R_Grass, T_Grass, D_Grass, LT_Grass, RT_Grass, LD_Grass, RD_Grass;
+    public Tile grass, water, brick, floor, L_Grass, R_Grass, T_Grass, D_Grass, LT_Grass, RT_Grass, LD_Grass, RD_Grass, Dirt_road, sand;
 
     public TileManager(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
@@ -37,7 +37,6 @@ public class TileManager {
             grass = new Tile();
             grass.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/Basic_Grass.jpg"));
             tiles.put(0, grass);
-
             water = new Tile();
             water.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/water.jpg"));
             tiles.put(1, water);
@@ -46,6 +45,19 @@ public class TileManager {
             brick.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/brick.png"));
             brick.colliton = true;
             tiles.put(2, brick);
+
+            floor = new Tile();
+            floor.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/floor.jpg"));
+            tiles.put(3, floor);
+
+            Dirt_road = new Tile();
+            Dirt_road.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/Dirt_road.png"));
+            tiles.put(4, Dirt_road);
+
+            sand = new Tile();
+            sand.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/sand.jpg"));
+            tiles.put(5, sand);
+
 
             L_Grass = new Tile();
             L_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/L_Grass.jpg"));
@@ -98,9 +110,8 @@ public class TileManager {
             }
 
             br.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("2");
         }
     }
 

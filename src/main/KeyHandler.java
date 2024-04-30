@@ -5,8 +5,7 @@ import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed, interactPressed = false;
-
+    public boolean upPressed, downPressed, leftPressed, rightPressed, interactPressed = false, inventoryPressed = false;
     @Override
     public void keyTyped(KeyEvent e) {
     }
@@ -54,6 +53,9 @@ public class KeyHandler implements KeyListener {
         }
         if (keyCode == KeyEvent.VK_E) {
             interactPressed = false;
+        }
+        if (keyCode == KeyEvent.VK_I){
+            inventoryPressed = !inventoryPressed;
         }
     }
 }

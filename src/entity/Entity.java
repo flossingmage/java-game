@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 public class Entity {
+    public int Health;
     public int worldX, worldY;
     public int speed;
 

@@ -18,7 +18,12 @@ public class Door extends SuperObject {
 
     @Override
     public void interact() {
-        System.out.println("door");
+        collisionOn = false;
+        try {
+            this.image = ImageIO.read(getClass().getResourceAsStream("../../res/objects/door_Open.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

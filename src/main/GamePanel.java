@@ -36,8 +36,9 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
     public CollisionCheck collisionCheck = new CollisionCheck(this);
     public Player player = new Player(this, keyHandler);
-    SuperObject[] objects = new SuperObject[10];
+    public SuperObject[] objects = new SuperObject[10];
     ObjectManager objectManager = new ObjectManager(this);
+    public UI ui = new UI(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -49,7 +50,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void SetupGame() {
-        objectManager.placeObject();
+      objectManager.placeObject();
     }
 
     public void startGameThread() {
@@ -86,6 +87,9 @@ public class GamePanel extends JPanel implements Runnable {
                 objects[i].draw(g2d, this);
             }
         }
+
+        ui.draw(g2d);
+
         player.draw(g2d);
 
         g2d.dispose();
