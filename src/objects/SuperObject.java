@@ -12,6 +12,7 @@ public class SuperObject {
     public String name;
     public int WorldX, WorldY;
     public boolean collisionOn = false;
+    public boolean interactable = false;
 
     public void draw(Graphics2D g2d, GamePanel gamePanel) {
         g2d.drawImage(image, WorldX * gamePanel.tileSize - gamePanel.player.worldX + gamePanel.player.screenX,
@@ -24,7 +25,13 @@ public class SuperObject {
         System.out.println("interact");
     }
 
+    public void onCollision() {
+        System.out.println("collision");
+    }
+
     public SuperObject interactable(int playerX, int playerY, String direction, Rectangle soidArea, int tileSize) {
+        if (!interactable)
+            return null;
         int left = (playerX + soidArea.x) / tileSize;
         int right = (playerX + soidArea.x + soidArea.width) / tileSize;
         int top = (playerY + soidArea.y) / tileSize;
@@ -50,6 +57,23 @@ public class SuperObject {
                 break;
         }
         return null;
+    }
+
+    public SuperObject isOnPlayer(int playerX, int playerY, Rectangle soidArea, int tileSize) {
+        int left = (playerX + soidArea.x) / tileSize;
+        int right = (playerX + soidArea.x + soidArea.width) / tileSize;
+        int top = (playerY + soidArea.y) / tileSize;
+        int bottom = (playerY + soidArea.y + soidArea.height) / tileSize;
+        if ((left == WorldX || right == WorldX) && (top == WorldY || bottom == WorldY))
+            return this;
+        
+        return null;
+    }
+
+    public void remove() {
+        WorldX = -1;
+        WorldY = -1;
+
     }
 
 }

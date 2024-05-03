@@ -15,6 +15,8 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
 
+    public static int NumOfCoins = 0;
+
     public Player(GamePanel gamePanel, KeyHandler keyHandler) {
         this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
@@ -128,6 +130,17 @@ public class Player extends Entity {
             }
         }
         
+        // check if player is on a coin
+        for (SuperObject object : gamePanel.objects) {
+            if (object != null) {
+                if (object.isOnPlayer(worldX, worldY, soidArea, gamePanel.tileSize) != null) {
+                    if (object.name.equals("coin")) {
+                        object.interact();
+                        object.remove();
+                    }
+                }
+            }
+        }
     }
 
     public void draw(Graphics2D g2d) {

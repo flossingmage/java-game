@@ -1,5 +1,6 @@
 package src.main;
 
+import src.objects.Coin;
 import src.objects.Door;
 
 public class ObjectManager {
@@ -31,6 +32,10 @@ public class ObjectManager {
         gamePanel.objects[5] = new Door();
         gamePanel.objects[5].WorldX = 20;
         gamePanel.objects[5].WorldY = 20;
+
+        gamePanel.objects[6] = new Coin();
+        gamePanel.objects[6].WorldX = 25;
+        gamePanel.objects[6].WorldY = 22;
     }
 
 }
