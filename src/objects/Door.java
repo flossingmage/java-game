@@ -11,7 +11,7 @@ public class Door extends SuperObject {
         collisionOn = true;
         interactable = true;
         try {
-            this.image = ImageIO.read(getClass().getResourceAsStream("../../res/objects/door.jpg"));
+            this.image = ImageIO.read(getClass().getResourceAsStream("../../res/objects/doorFull.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -20,8 +20,13 @@ public class Door extends SuperObject {
     @Override
     public void interact() {
         collisionOn = false;
+        System.out.println("interacted with door");
         try {
-            this.image = ImageIO.read(getClass().getResourceAsStream("../../res/objects/door_Open.jpg"));
+            if (!collisionOn){
+            this.image = ImageIO.read(getClass().getResourceAsStream("../../res/objects/doorFullOpen.png"));
+            }else {
+                this.image = ImageIO.read(getClass().getResourceAsStream("../../res/objects/doorFull.png"));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

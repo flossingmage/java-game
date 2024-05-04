@@ -36,6 +36,10 @@ public class ObjectManager {
         gamePanel.objects[6] = new Coin();
         gamePanel.objects[6].WorldX = 25;
         gamePanel.objects[6].WorldY = 22;
+
+        gamePanel.objects[7] = new Coin();
+        gamePanel.objects[7].WorldX = 27;
+        gamePanel.objects[7].WorldY = 22;
     }
 
 }

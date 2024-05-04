@@ -10,10 +10,11 @@ import src.main.UI.inventory;
 public class MainUI{
     GamePanel gamePanel;
     Font font = new Font("Arial", Font.BOLD,20);
-    inventory inventory = new inventory(gamePanel, font);
+    inventory inventory;
 
     public MainUI(GamePanel gamePanel){
         this.gamePanel = gamePanel;
+        inventory = new inventory(gamePanel, font);
     }
 
     public void draw(Graphics2D g2d){
@@ -21,7 +22,7 @@ public class MainUI{
         g2d.drawString("Health: " + gamePanel.player.Health, 10, 20);
         g2d.drawString("Coins: " + Player.NumOfCoins, 10, 40);
         if (gamePanel.keyHandler.inventoryPressed){
-            inventoryOpen(g2d);
+            inventory.inventoryOpen(g2d);
         }
 
     }
