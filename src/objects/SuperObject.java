@@ -66,7 +66,7 @@ public class SuperObject {
         int bottom = (playerY + soidArea.y + soidArea.height) / tileSize;
         if ((left == WorldX || right == WorldX) && (top == WorldY || bottom == WorldY))
             return this;
-        
+
         return null;
     }
 

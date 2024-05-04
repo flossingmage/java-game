@@ -7,8 +7,8 @@ import javax.imageio.ImageIO;
 import src.entity.Player;
 import src.main.UI.inventory;
 
-public class Coin extends SuperObject{
-    public Coin(){
+public class Coin extends SuperObject {
+    public Coin() {
         this.name = "coin";
         try {
             this.image = ImageIO.read(getClass().getResourceAsStream("../../res/objects/coin.png"));
@@ -20,8 +20,8 @@ public class Coin extends SuperObject{
     @Override
     public void onCollision() {
         Player.NumOfCoins++;
-        inventory.pickedUpItem(name,image);
+        inventory.pickedUpItem(name, image);
         remove();
     }
-    
+
 }

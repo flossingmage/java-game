@@ -50,7 +50,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void SetupGame() {
-      objectManager.placeObject();
+        objectManager.placeObject();
     }
 
     public void startGameThread() {
