@@ -6,7 +6,6 @@ import java.awt.Graphics2D;
 
 import src.entity.Player;
 import src.main.GamePanel;
-import src.main.KeyHandler;
 
 public class MainUI {
     GamePanel gamePanel;
@@ -22,7 +21,7 @@ public class MainUI {
         g2d.setColor(Color.WHITE);
         g2d.drawString("Health: " + gamePanel.player.Health, 10, 20);
         g2d.drawString("Coins: " + Player.NumOfCoins, 10, 40);
-        if (gamePanel.keyHandler.inventoryPressed){
+        if (gamePanel.keyHandler.inventoryPressed) {
             inventory.inventoryOpen(g2d);
         }
 

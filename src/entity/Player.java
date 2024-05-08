@@ -7,7 +7,9 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
 import src.main.*;
+import src.objects.PickUp;
 import src.objects.SuperObject;
+
 public class Player extends Entity {
     GamePanel gamePanel;
     KeyHandler keyHandler;
@@ -134,7 +136,8 @@ public class Player extends Entity {
         for (SuperObject object : gamePanel.objects) {
             if (object != null) {
                 if (object.isOnPlayer(worldX, worldY, soidArea, gamePanel.tileSize) != null) {
-                        object.onCollision();
+                    if (object instanceof PickUp)
+                        ((PickUp) object).onCollision();
                 }
             }
         }

@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Mana_Potion extends PickUp{
+public class Mana_Potion extends PickUp {
 
     public Mana_Potion() {
         this.name = "mana_potion";
@@ -14,5 +14,5 @@ public class Mana_Potion extends PickUp{
             e.printStackTrace();
         }
     }
-    
+
 }

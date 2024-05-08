@@ -33,7 +33,9 @@ public class inventory {
         g2d.drawString("Inventory", gamePanel.screenWidth - width + 50, 20);
         drawSlots(g2d);
         try {
-            g2d.drawImage(ImageIO.read(getClass().getResourceAsStream("../../res/UI/inventory_selector.png")), gamePanel.screenWidth - width + 5 + (40 * KeyHandler.right), 40  + (40 * KeyHandler.down), 31, 32, null);
+            g2d.drawImage(ImageIO.read(getClass().getResourceAsStream("../../res/UI/inventory_selector.png")),
+                    gamePanel.screenWidth - width + 5 + (40 * KeyHandler.right), 40 + (40 * KeyHandler.down), 31, 32,
+                    null);
         } catch (IOException e) {
             e.printStackTrace();
         }

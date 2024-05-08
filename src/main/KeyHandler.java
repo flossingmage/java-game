@@ -64,19 +64,19 @@ public class KeyHandler implements KeyListener {
         }
         if (keyCode == KeyEvent.VK_RIGHT) {
             if (4 > right && right < ((inventory.storgeSlots.size() - 1 - (down * 5))))
-            right++;
+                right++;
         }
         if (keyCode == KeyEvent.VK_LEFT) {
             if (right > 0)
-            right--;
+                right--;
         }
         if (keyCode == KeyEvent.VK_DOWN) {
-            if ((inventory.storgeSlots.size()/5) > down)
-            down++;
+            if ((inventory.storgeSlots.size() / 5) > down)
+                down++;
         }
         if (keyCode == KeyEvent.VK_UP) {
             if (down > 0)
-            down--;
+                down--;
         }
     }
 }
