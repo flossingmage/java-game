@@ -25,10 +25,6 @@ public class SuperObject {
         System.out.println("interact");
     }
 
-    public void onCollision() {
-        System.out.println("collision");
-    }
-
     public SuperObject interactable(int playerX, int playerY, String direction, Rectangle soidArea, int tileSize) {
         if (!interactable)
             return null;

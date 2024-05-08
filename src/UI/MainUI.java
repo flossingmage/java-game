@@ -1,11 +1,12 @@
-package src.main;
+package src.UI;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 
 import src.entity.Player;
-import src.main.UI.inventory;
+import src.main.GamePanel;
+import src.main.KeyHandler;
 
 public class MainUI{
     GamePanel gamePanel;
@@ -21,6 +22,8 @@ public class MainUI{
         g2d.setColor(Color.WHITE);
         g2d.drawString("Health: " + gamePanel.player.Health, 10, 20);
         g2d.drawString("Coins: " + Player.NumOfCoins, 10, 40);
+        g2d.drawString("X: " + KeyHandler.right, 10, 60);
+        g2d.drawString("Y: " + KeyHandler.down, 10, 80);
         if (gamePanel.keyHandler.inventoryPressed){
             inventory.inventoryOpen(g2d);
         }

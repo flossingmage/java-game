@@ -1,4 +1,4 @@
-package src.main.UI;
+package src.UI;
 
 import java.awt.image.BufferedImage;
 

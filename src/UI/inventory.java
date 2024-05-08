@@ -1,18 +1,22 @@
-package src.main.UI;
+package src.UI;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
+
 import src.main.GamePanel;
+import src.main.KeyHandler;
 
 public class inventory {
 
     public GamePanel gamePanel;
     Font font;
-    static ArrayList<StorgeSlot> storgeSlots = new ArrayList<StorgeSlot>();
+    public static ArrayList<StorgeSlot> storgeSlots = new ArrayList<StorgeSlot>();
     int width = 200;
     int height = 400;
 
@@ -28,6 +32,11 @@ public class inventory {
         g2d.setFont(font);
         g2d.drawString("Inventory", gamePanel.screenWidth - width + 50, 20);
         drawSlots(g2d);
+        try {
+            g2d.drawImage(ImageIO.read(getClass().getResourceAsStream("../../res/UI/inventory_selector.png")), gamePanel.screenWidth - width + 5 + (40 * KeyHandler.right), 40  + (40 * KeyHandler.down), 31, 32, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void pickedUpItem(String item, BufferedImage image) {

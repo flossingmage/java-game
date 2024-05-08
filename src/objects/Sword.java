@@ -4,13 +4,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import src.entity.Player;
-
-public class Coin extends PickUp{
-    public Coin(){
-        this.name = "coin";
+public class Sword extends PickUp {
+    public Sword() {
+        this.name = "sword";
         try {
-            this.image = ImageIO.read(getClass().getResourceAsStream("../../res/objects/coin.png"));
+            this.image = ImageIO.read(getClass().getResourceAsStream("../../res/objects/sword.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -18,8 +16,8 @@ public class Coin extends PickUp{
 
     @Override
     public void onCollision() {
-        Player.NumOfCoins++;
+        System.out.println("You picked up a sword!");
         super.onCollision();
     }
-    
+
 }

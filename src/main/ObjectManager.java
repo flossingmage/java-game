@@ -1,7 +1,13 @@
 package src.main;
 
+import src.objects.Chestplate;
 import src.objects.Coin;
 import src.objects.Door;
+import src.objects.Health_Potion;
+import src.objects.Helmet;
+import src.objects.Mana_Potion;
+import src.objects.Pants;
+import src.objects.Sword;
 
 public class ObjectManager {
 
@@ -37,9 +43,29 @@ public class ObjectManager {
         gamePanel.objects[6].WorldX = 25;
         gamePanel.objects[6].WorldY = 22;
 
-        gamePanel.objects[7] = new Coin();
+        gamePanel.objects[7] = new Health_Potion();
         gamePanel.objects[7].WorldX = 27;
         gamePanel.objects[7].WorldY = 22;
+
+        gamePanel.objects[8] = new Sword();
+        gamePanel.objects[8].WorldX = 25;
+        gamePanel.objects[8].WorldY = 27;
+
+        gamePanel.objects[9] = new Mana_Potion();
+        gamePanel.objects[9].WorldX = 27;
+        gamePanel.objects[9].WorldY = 27;
+
+        gamePanel.objects[10] = new Helmet();
+        gamePanel.objects[10].WorldX = 25;
+        gamePanel.objects[10].WorldY = 32;
+
+        gamePanel.objects[11] = new Chestplate();
+        gamePanel.objects[11].WorldX = 27;
+        gamePanel.objects[11].WorldY = 32;
+
+        gamePanel.objects[12] = new Pants();
+        gamePanel.objects[12].WorldX = 25;
+        gamePanel.objects[12].WorldY = 37;
     }
 
 }

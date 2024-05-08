@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import src.UI.MainUI;
 import src.entity.Player;
 import src.objects.SuperObject;
 import src.tiles.TileManager;
@@ -32,11 +33,11 @@ public class GamePanel extends JPanel implements Runnable {
     int FPSLimit = 60;
 
     TileManager tileManager = new TileManager(this);
-    KeyHandler keyHandler = new KeyHandler();
+    public KeyHandler keyHandler = new KeyHandler();
     Thread gameThread;
     public CollisionCheck collisionCheck = new CollisionCheck(this);
     public Player player = new Player(this, keyHandler);
-    public SuperObject[] objects = new SuperObject[10];
+    public SuperObject[] objects = new SuperObject[20];
     ObjectManager objectManager = new ObjectManager(this);
     public MainUI ui = new MainUI(this);
 

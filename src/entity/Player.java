@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 import src.main.*;
 import src.objects.SuperObject;
+import src.objects.PickUp;
 public class Player extends Entity {
     GamePanel gamePanel;
     KeyHandler keyHandler;
@@ -125,19 +126,17 @@ public class Player extends Entity {
                         }
                     }
                 }
-            } catch (NullPointerException e) {
+            } catch (Exception e) {
                 System.out.println("No object to interact with");
             }
         }
         
         // check if player is on a coin
-        for (SuperObject object : gamePanel.objects) {
-            if (object != null) {
-                if (object.isOnPlayer(worldX, worldY, soidArea, gamePanel.tileSize) != null) {
-                        object.onCollision();
-                }
-            }
-        }
+        for (SuperObject object : gamePanel.objects)
+            if (object != null)
+                if (object.isOnPlayer(worldX, worldY, soidArea, gamePanel.tileSize) != null) 
+                    if (object instanceof src.objects.PickUp)
+                        ((PickUp) object).onCollision(); 
     }
 
     public void draw(Graphics2D g2d) {
