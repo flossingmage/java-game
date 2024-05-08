@@ -21,5 +21,5 @@ public class Coin extends PickUp{
         Player.NumOfCoins++;
         super.onCollision();
     }
-    
+
 }

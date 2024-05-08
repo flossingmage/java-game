@@ -17,7 +17,8 @@ public class TileManager {
     GamePanel gamePanel;
     public HashMap<Integer, Tile> tiles = new HashMap<Integer, Tile>();
     public int mapTileNumber[][];
-    public Tile grass, water, brick, floor, L_Grass, R_Grass, T_Grass, D_Grass, LT_Grass, RT_Grass, LD_Grass, RD_Grass, Dirt_road, sand;
+    public Tile grass, water, brick, floor, L_Grass, R_Grass, T_Grass, D_Grass, LT_Grass, RT_Grass, LD_Grass, RD_Grass,
+            Dirt_road, sand;
 
     public TileManager(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
@@ -47,7 +48,7 @@ public class TileManager {
             tiles.put(2, brick);
 
             floor = new Tile();
-            floor.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/floor.jpg"));
+            floor.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/floor.png"));
             tiles.put(3, floor);
 
             Dirt_road = new Tile();
@@ -57,7 +58,6 @@ public class TileManager {
             sand = new Tile();
             sand.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/sand.jpg"));
             tiles.put(5, sand);
-
 
             L_Grass = new Tile();
             L_Grass.image = ImageIO.read(getClass().getResourceAsStream("../../res/tiles/L_Grass.jpg"));
