@@ -16,7 +16,6 @@ public class Sword extends PickUp {
 
     @Override
     public void onCollision() {
-        System.out.println("You picked up a sword!");
         super.onCollision();
     }
 

@@ -1,18 +1,16 @@
 package src.UI;
 
-import java.awt.image.BufferedImage;
+import src.objects.PickUp;
 
 public class StorgeSlot {
     public boolean empty = true;
-    public String item = "";
+    public PickUp item;
     public int quantity = 0;
-    public BufferedImage image;
 
-    public StorgeSlot(String item, BufferedImage image) {
+    public StorgeSlot(PickUp item) {
         {
             this.empty = false;
             this.item = item;
-            this.image = image;
             this.quantity = 1;
 
         }

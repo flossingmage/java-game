@@ -3,7 +3,6 @@ package src.UI;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -11,6 +10,7 @@ import javax.imageio.ImageIO;
 
 import src.main.GamePanel;
 import src.main.KeyHandler;
+import src.objects.PickUp;
 
 public class inventory {
 
@@ -41,7 +41,7 @@ public class inventory {
         }
     }
 
-    public static void pickedUpItem(String item, BufferedImage image) {
+    public static void pickedUpItem(PickUp item) {
         boolean itemExists = false;
         for (StorgeSlot storgeSlot : storgeSlots) {
             if (!storgeSlot.empty && storgeSlot.item.equals(item)) {
@@ -51,7 +51,7 @@ public class inventory {
             }
         }
         if (!itemExists) {
-            storgeSlots.add(new StorgeSlot(item, image));
+            storgeSlots.add(new StorgeSlot(item));
         }
     }
 
@@ -59,10 +59,20 @@ public class inventory {
         g2d.setFont(new Font("Arial", Font.PLAIN, 10));
         for (int i = 0; i < storgeSlots.size(); i++) {
             g2d.drawRect(gamePanel.screenWidth - width + 5 + (40 * (i % 5)), 40 + (40 * (i / 5)), 30, 30);
-            g2d.drawImage(storgeSlots.get(i).image, gamePanel.screenWidth - width + 6 + (40 * (i % 5)),
+            g2d.drawImage(storgeSlots.get(i).item.image, gamePanel.screenWidth - width + 6 + (40 * (i % 5)),
                     41 + (40 * (i / 5)), 28, 28, null);
             g2d.drawString("x" + storgeSlots.get(i).quantity, gamePanel.screenWidth - width + 5 + (40 * (i % 5)),
                     50 + (40 * (i / 5)));
+        }
+    }
+
+    public static void useItem() {
+        if (!storgeSlots.get(KeyHandler.down * 5 + KeyHandler.right).empty) {
+            storgeSlots.get(KeyHandler.down * 5 + KeyHandler.right).item.useItem();
+            storgeSlots.get(KeyHandler.down * 5 + KeyHandler.right).quantity--;
+            if (storgeSlots.get(KeyHandler.down * 5 + KeyHandler.right).quantity == 0) {
+                storgeSlots.remove(KeyHandler.down * 5 + KeyHandler.right);
+            }
         }
     }
 

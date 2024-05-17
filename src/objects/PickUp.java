@@ -8,8 +8,12 @@ public class PickUp extends SuperObject {
     }
 
     public void onCollision() {
-        inventory.pickedUpItem(name, image);
+        inventory.pickedUpItem(this);
         remove();
+    }
+
+    public void useItem() {
+        System.out.println("Used " + name);
     }
 
 }

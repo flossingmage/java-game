@@ -18,7 +18,7 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
-
+        // movement
         if (keyCode == KeyEvent.VK_W) {
             upPressed = true;
         }
@@ -31,9 +31,11 @@ public class KeyHandler implements KeyListener {
         if (keyCode == KeyEvent.VK_D) {
             rightPressed = true;
         }
+        // exit
         if (keyCode == KeyEvent.VK_ESCAPE) {
             System.exit(0);
         }
+        // interact
         if (keyCode == KeyEvent.VK_E) {
             interactPressed = true;
         }
@@ -43,7 +45,7 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         int keyCode = e.getKeyCode();
-
+        // movement
         if (keyCode == KeyEvent.VK_W) {
             upPressed = false;
         }
@@ -59,9 +61,11 @@ public class KeyHandler implements KeyListener {
         if (keyCode == KeyEvent.VK_E) {
             interactPressed = false;
         }
+        // inventory
         if (keyCode == KeyEvent.VK_I) {
             inventoryPressed = !inventoryPressed;
         }
+        // inventory movement
         if (keyCode == KeyEvent.VK_RIGHT) {
             if (4 > right && right < ((inventory.storgeSlots.size() - 1 - (down * 5))))
                 right++;
@@ -73,10 +77,16 @@ public class KeyHandler implements KeyListener {
         if (keyCode == KeyEvent.VK_DOWN) {
             if ((inventory.storgeSlots.size() / 5) > down)
                 down++;
+            if (right > (inventory.storgeSlots.size() - 1 - (down * 5)))
+                right = (inventory.storgeSlots.size() - 1 - (down * 5));
         }
         if (keyCode == KeyEvent.VK_UP) {
             if (down > 0)
                 down--;
+        }
+        // use item
+        if (keyCode == KeyEvent.VK_ENTER) {
+            inventory.useItem();
         }
     }
 }
