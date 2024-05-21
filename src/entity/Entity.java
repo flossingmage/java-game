@@ -7,6 +7,7 @@ public class Entity {
     public int Health;
     public int worldX, worldY;
     public int speed;
+    public static int defence;
 
     // movement animation
     public BufferedImage up, up1, up2, up3, up4, down, down1, down2, down3, down4, left, left1, left2, left3, left4,

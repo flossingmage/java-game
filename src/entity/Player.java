@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 import src.main.*;
 import src.objects.PickUp;
 import src.objects.SuperObject;
+import src.objects.equipment.Equipment;
 
 public class Player extends Entity {
     GamePanel gamePanel;
@@ -16,6 +17,8 @@ public class Player extends Entity {
 
     public final int screenX;
     public final int screenY;
+
+    public static Equipment[] equipment = new Equipment[4];
 
     public static int NumOfCoins = 0;
 
@@ -37,6 +40,7 @@ public class Player extends Entity {
         worldX = 25 * gamePanel.tileSize;
         worldY = 25 * gamePanel.tileSize;
         speed = 5;
+        defence = 0;
         direction = "down";
     }
 

@@ -20,6 +20,7 @@ public class MainUI {
     public void draw(Graphics2D g2d) {
         g2d.setColor(Color.WHITE);
         g2d.drawString("Health: " + gamePanel.player.Health, 10, 20);
+        g2d.drawString("Defence: " + Player.defence, 10, 60);
         g2d.drawString("Coins: " + Player.NumOfCoins, 10, 40);
         if (gamePanel.keyHandler.inventoryPressed) {
             inventory.inventoryOpen(g2d);

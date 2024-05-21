@@ -8,9 +8,11 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
+import src.entity.Player;
 import src.main.GamePanel;
 import src.main.KeyHandler;
 import src.objects.PickUp;
+import src.objects.equipment.Equipment;
 
 public class inventory {
 
@@ -64,12 +66,26 @@ public class inventory {
             g2d.drawString("x" + storgeSlots.get(i).quantity, gamePanel.screenWidth - width + 5 + (40 * (i % 5)),
                     50 + (40 * (i / 5)));
         }
+
+        for (int i = 0; i < Player.equipment.length; i++) {
+            g2d.drawRect(gamePanel.screenWidth - width + 10 + (35 * i), 300, 30, 30);
+            if (Player.equipment[i] != null) {
+                g2d.drawImage(Player.equipment[i].image, gamePanel.screenWidth - width + 10 + (35 * i), 300,
+                        30, 30,
+                        null);
+            }
+        }
     }
 
     public static void useItem() {
         if (!storgeSlots.get(KeyHandler.down * 5 + KeyHandler.right).empty) {
-            storgeSlots.get(KeyHandler.down * 5 + KeyHandler.right).item.useItem();
-            storgeSlots.get(KeyHandler.down * 5 + KeyHandler.right).quantity--;
+            if (storgeSlots.get(KeyHandler.down * 5 + KeyHandler.right).item.useItem()) {
+                if (storgeSlots.get(KeyHandler.down * 5 + KeyHandler.right).item instanceof Equipment) {
+                    ((Equipment) storgeSlots
+                            .get(KeyHandler.down * 5 + KeyHandler.right).item).defence += Player.defence;
+                }
+                storgeSlots.get(KeyHandler.down * 5 + KeyHandler.right).quantity--;
+            }
             if (storgeSlots.get(KeyHandler.down * 5 + KeyHandler.right).quantity == 0) {
                 storgeSlots.remove(KeyHandler.down * 5 + KeyHandler.right);
             }

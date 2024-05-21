@@ -1,13 +1,13 @@
 package src.main;
 
-import src.objects.Chestplate;
 import src.objects.Coin;
 import src.objects.Door;
 import src.objects.Health_Potion;
-import src.objects.Helmet;
 import src.objects.Mana_Potion;
-import src.objects.Pants;
-import src.objects.Sword;
+import src.objects.equipment.Chestplate;
+import src.objects.equipment.Helmet;
+import src.objects.equipment.Pants;
+import src.objects.equipment.Sword;
 
 public class ObjectManager {
 

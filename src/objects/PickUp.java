@@ -3,7 +3,6 @@ package src.objects;
 import src.UI.inventory;
 
 public class PickUp extends SuperObject {
-
     public PickUp() {
     }
 
@@ -12,8 +11,9 @@ public class PickUp extends SuperObject {
         remove();
     }
 
-    public void useItem() {
+    public boolean useItem() {
         System.out.println("Used " + name);
+        return true;
     }
 
 }
